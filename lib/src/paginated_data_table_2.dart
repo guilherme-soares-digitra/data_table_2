@@ -215,6 +215,7 @@ class PaginatedDataTable2 extends StatefulWidget {
     this.isVerticalScrollBarVisible,
     this.isHorizontalScrollBarVisible,
     this.showPageItemsIndicator = false,
+    this.footerRowHeight = 56.0,
   })  : assert(actions == null || (header != null)),
         assert(columns.isNotEmpty),
         assert(sortColumnIndex == null || (sortColumnIndex >= 0 && sortColumnIndex < columns.length)),
@@ -518,6 +519,8 @@ class PaginatedDataTable2 extends StatefulWidget {
 
   /// Determines whether the page indicator is visible
   final bool showPageItemsIndicator;
+
+  final double footerRowHeight;
 
   @override
   PaginatedDataTable2State createState() => PaginatedDataTable2State();
@@ -898,7 +901,7 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
       child: IconTheme.merge(
         data: const IconThemeData(opacity: 0.54),
         child: SizedBox(
-          height: 56.0,
+          height: widget.footerRowHeight,
           child: SingleChildScrollView(
             dragStartBehavior: widget.dragStartBehavior,
             scrollDirection: Axis.horizontal,
