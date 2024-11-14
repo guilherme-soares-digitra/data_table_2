@@ -943,9 +943,9 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
                           widget.headingRowHeight -
                           8 * (widget.wrapInCard ? 1 : 0) // card paddings
                           -
-                          64 * (isHeaderPresent ? 1 : 0) //header
+                          widget.headingRowHeight * (isHeaderPresent ? 1 : 0) //header
                           -
-                          56 * (widget.hidePaginator ? 0 : 1) // footer
+                          widget.footerRowHeight * (widget.hidePaginator ? 0 : 1) // footer
                       ) /
                       widget.dataRowHeight)
                   .floor(),
